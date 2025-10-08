@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ToDoApp.DAL.Data;
+using ToDoApp.BLL;
 using ToDoApp.DAL.Repositories.Interfaces.Base;
 using ToDoApp.DAL.Repositories.Realizations.Base;
 
@@ -9,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+builder.Services.AddAutoMapper(typeof(BllAssemblyMarker).Assembly);
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(BllAssemblyMarker).Assembly));
 
 builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
 
