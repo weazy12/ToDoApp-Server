@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36121.58 d17.14
+VisualStudioVersion = 17.14.36121.58
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp-Server", "ToDoApp-Server\ToDoApp-Server.csproj", "{BDA9519A-4922-44C3-B9C3-964E3965F1AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.WebApi", "ToDoApp-Server\ToDoApp.WebApi.csproj", "{BDA9519A-4922-44C3-B9C3-964E3965F1AD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.BLL", "ToDoApp.BLL\ToDoApp.BLL.csproj", "{C1AE06BE-CA7C-42CD-B922-89B1093C8200}"
 EndProject
