@@ -17,8 +17,8 @@ namespace ToDoApp.BLL.DTOs.ToDoTask
 
         public Status Status { get; set; }
 
-        public DateTime DueDate { get; set; }
-
-        public DateTime CompletedAt { get; set; }
+        public DateTime? DueDate { get; set; }
+   
+        public DateTime? CompletedAt { get; set; }
     }
 }

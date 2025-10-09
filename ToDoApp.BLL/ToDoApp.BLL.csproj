@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="15.0.1" />
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="FluentResults" Version="4.0.0" />
     <PackageReference Include="FluentValidation" Version="12.0.0" />
     <PackageReference Include="MediatR" Version="13.0.0" />
@@ -15,10 +15,6 @@
 
   <ItemGroup>
     <Folder Include="Behavior\" />
-    <Folder Include="Mediatr\ToDoTask\Delete\" />
-    <Folder Include="Mediatr\ToDoTask\GetALl\" />
-    <Folder Include="Mediatr\ToDoTask\GetById\" />
-    <Folder Include="Mediatr\ToDoTask\Update\" />
   </ItemGroup>
 
   <ItemGroup>
