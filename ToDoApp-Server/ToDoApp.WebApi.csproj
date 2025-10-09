@@ -15,15 +15,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Scalar.AspNetCore" Version="2.8.10" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ToDoApp.BLL\ToDoApp.BLL.csproj" />
     <ProjectReference Include="..\ToDoApp.DAL\ToDoApp.DAL.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

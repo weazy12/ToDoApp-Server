@@ -3,6 +3,7 @@ using ToDoApp.DAL.Data;
 using ToDoApp.BLL;
 using ToDoApp.DAL.Repositories.Interfaces.Base;
 using ToDoApp.DAL.Repositories.Realizations.Base;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
