@@ -7,7 +7,7 @@ using ToDoApp.DAL.Repositories.Interfaces.Base;
 
 namespace ToDoApp.BLL.Mediatr.Tasks.Create
 {
-    class CreateToDoTaskHandler : IRequestHandler<CreateToDoTaskCommand, Result<ToDoTaskDto>>
+    public class CreateToDoTaskHandler : IRequestHandler<CreateToDoTaskCommand, Result<ToDoTaskDto>>
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryWrapper _repositoryWrapper;

@@ -6,4 +6,25 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="8.7.1" />
+    <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ToDoApp-Server\ToDoApp.WebApi.csproj" />
+    <ProjectReference Include="..\ToDoApp.BLL\ToDoApp.BLL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BLL\Mediatr\ToDoTask\GetAll\" />
+    <Folder Include="BLL\Mediatr\ToDoTask\Delete\" />
+    <Folder Include="BLL\Mediatr\ToDoTask\Update\" />
+  </ItemGroup>
+
 </Project>
