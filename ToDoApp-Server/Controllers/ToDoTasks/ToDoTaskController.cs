@@ -7,16 +7,16 @@ using ToDoApp.BLL.Mediatr.ToDoTask.Update;
 
 namespace ToDoApp.WebApi.Controllers.ToDoTasks
 {
-    public class ToDoTasksController : BaseController
+    public class ToDoTaskController : BaseController
     {
         [HttpGet]
-        public async Task<IActionResult> GetAllTask()
+        public async Task<IActionResult> GetAll()
         {
             return HandleResult(await Mediator.Send(new GetAllToDoTasksQuery()));
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateTask([FromBody] CreateToDoTaskDto createToDoTaskDto)
+        public async Task<IActionResult> Create([FromBody] CreateToDoTaskDto createToDoTaskDto)
         {
             return HandleResult(await Mediator.Send(new CreateToDoTaskCommand(createToDoTaskDto)));
         }
@@ -28,7 +28,7 @@ namespace ToDoApp.WebApi.Controllers.ToDoTasks
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteTask([FromBody] int id)
+        public async Task<IActionResult> Delete([FromBody] int id)
         {
             return HandleResult(await Mediator.Send(new DeleteToDoTaskCommand(id)));
         }
