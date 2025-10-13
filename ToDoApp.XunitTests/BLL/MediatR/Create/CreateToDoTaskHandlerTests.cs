@@ -5,19 +5,17 @@ using ToDoApp.BLL.DTOs.ToDoTask;
 using ToDoApp.BLL.Mediatr.Tasks.Create;
 using ToDoApp.BLL.Mediatr.ToDoTask.Create;
 using ToDoApp.DAL.Repositories.Interfaces.Base;
-using Xunit;
 
-
-namespace ToDoApp.XUnitTests.BLL.Mediatr.ToDoTask.Create
+namespace ToDoApp.XunitTests.BLL.MediatR.Create
 {
-    public class CreateTodoTaskHandlerTests
+    public class CreateToDoTaskHandlerTests
     {
         private readonly Mock<IRepositoryWrapper> _mockRepositoryWrapper;
 
         private readonly Mock<IMapper> _mockMapper;
 
         private readonly CreateToDoTaskHandler _handler;
-        public CreateTodoTaskHandlerTests()
+        public CreateToDoTaskHandlerTests()
         {
             _mockMapper = new Mock<IMapper>();
             _mockRepositoryWrapper = new Mock<IRepositoryWrapper>();

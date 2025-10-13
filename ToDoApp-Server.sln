@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.BLL", "ToDoApp.BLL\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.DAL", "ToDoApp.DAL\ToDoApp.DAL.csproj", "{A741E8F0-B5DE-4BD3-AEAB-6372763E71A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.XUnitTests", "ToDoApp.XUnitTests\ToDoApp.XUnitTests.csproj", "{AF545B90-39FA-49C5-BFEE-1A355225D454}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.XunitTests", "ToDoApp.XunitTests\ToDoApp.XunitTests.csproj", "{F706F55A-6063-47F9-A239-7C37733988A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{A741E8F0-B5DE-4BD3-AEAB-6372763E71A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A741E8F0-B5DE-4BD3-AEAB-6372763E71A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A741E8F0-B5DE-4BD3-AEAB-6372763E71A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF545B90-39FA-49C5-BFEE-1A355225D454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF545B90-39FA-49C5-BFEE-1A355225D454}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF545B90-39FA-49C5-BFEE-1A355225D454}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF545B90-39FA-49C5-BFEE-1A355225D454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F706F55A-6063-47F9-A239-7C37733988A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F706F55A-6063-47F9-A239-7C37733988A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F706F55A-6063-47F9-A239-7C37733988A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F706F55A-6063-47F9-A239-7C37733988A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
