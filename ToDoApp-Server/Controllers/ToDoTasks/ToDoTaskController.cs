@@ -27,8 +27,8 @@ namespace ToDoApp.WebApi.Controllers.ToDoTasks
             return HandleResult(await Mediator.Send(new UpdateToDoTaskCommand(updateToDoTaskDto)));
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody] int id)
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
         {
             return HandleResult(await Mediator.Send(new DeleteToDoTaskCommand(id)));
         }
