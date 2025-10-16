@@ -2,6 +2,8 @@
 using FluentResults;
 using MediatR;
 using ToDoApp.BLL.DTOs.ToDoTask;
+using ToDoApp.BLL.Extentions;
+using ToDoApp.BLL.Resorces;
 using ToDoApp.DAL.Repositories.Interfaces.Base;
 
 namespace ToDoApp.BLL.Mediatr.ToDoTask.GetAll
@@ -22,7 +24,8 @@ namespace ToDoApp.BLL.Mediatr.ToDoTask.GetAll
             var entities = await _repositoryWrapper.ToDoTaskRepository.GetAllAsync();
             if (entities == null)
             {
-                return Result.Fail<IEnumerable<ToDoTaskDto>>("Task not found in Db");
+                string errorMessage = Errors_TodoTask.NotFoundAny.FormatWith("TodoTask");
+                return Result.Fail<IEnumerable<ToDoTaskDto>>(errorMessage);
             }
             var dtos = _mapper.Map<IEnumerable<ToDoTaskDto>>(entities);
 

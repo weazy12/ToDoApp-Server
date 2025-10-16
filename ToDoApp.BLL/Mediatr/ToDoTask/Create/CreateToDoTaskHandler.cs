@@ -2,7 +2,9 @@
 using FluentResults;
 using MediatR;
 using ToDoApp.BLL.DTOs.ToDoTask;
+using ToDoApp.BLL.Extentions;
 using ToDoApp.BLL.Mediatr.ToDoTask.Create;
+using ToDoApp.BLL.Resorces;
 using ToDoApp.DAL.Repositories.Interfaces.Base;
 
 namespace ToDoApp.BLL.Mediatr.Tasks.Create
@@ -32,7 +34,8 @@ namespace ToDoApp.BLL.Mediatr.Tasks.Create
 
                 return Result.Ok(dto);
             }
-            return Result.Fail("Failed while creating the Task.");
+            string errorMessage = Errors_TodoTask.FailedToCreate.FormatWith("TodoTask");
+            return Result.Fail(errorMessage);
         }
     }
 }
