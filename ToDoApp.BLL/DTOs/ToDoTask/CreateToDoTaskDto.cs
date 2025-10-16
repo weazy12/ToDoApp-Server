@@ -9,12 +9,12 @@ namespace ToDoApp.BLL.DTOs.ToDoTask
 {
     public class CreateToDoTaskDto
     {
-        public string? Title { get; set; }
+        public string Title { get; set; } = null!;  
 
         public string? Description { get; set; }
 
 
-        public DateTime DueDate { get; set; }
+        public DateTime? DueDate { get; set; }
 
     }
 }
