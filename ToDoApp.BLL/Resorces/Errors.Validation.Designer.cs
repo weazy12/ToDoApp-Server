@@ -59,5 +59,59 @@ namespace ToDoApp.BLL.Resorces {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} must be greater than 0.
+        /// </summary>
+        internal static string GreateThanZero {
+            get {
+                return ResourceManager.GetString("GreateThanZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lenght of {0} should be less than {1} symbols.
+        /// </summary>
+        internal static string MaxLenght {
+            get {
+                return ResourceManager.GetString("MaxLenght", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lenght of {0} should be more than {1} symbols.
+        /// </summary>
+        internal static string MinLenght {
+            get {
+                return ResourceManager.GetString("MinLenght", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} cannot be empty or null.
+        /// </summary>
+        internal static string NotEmpty {
+            get {
+                return ResourceManager.GetString("NotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} should be more than now.
+        /// </summary>
+        internal static string NotNow {
+            get {
+                return ResourceManager.GetString("NotNow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} must has enum type.
+        /// </summary>
+        internal static string ShouldBeEnum {
+            get {
+                return ResourceManager.GetString("ShouldBeEnum", resourceCulture);
+            }
+        }
     }
 }
