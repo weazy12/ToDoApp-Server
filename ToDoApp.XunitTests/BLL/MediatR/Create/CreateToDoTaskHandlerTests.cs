@@ -42,7 +42,6 @@ namespace ToDoApp.XunitTests.BLL.MediatR.Create
                 Description = "Lorem ipsum",
                 DueDate = DateTime.UtcNow.AddDays(3),
                 Status = DAL.Enums.Status.ToDo,
-                CreatedAt = DateTime.UtcNow,
             };
 
             var returnDto = new ToDoTaskDto
@@ -51,8 +50,7 @@ namespace ToDoApp.XunitTests.BLL.MediatR.Create
                 Title = "Title",
                 Description = "Lorem ipsum",
                 DueDate = DateTime.UtcNow.AddDays(3),
-                Status = DAL.Enums.Status.ToDo,
-                CreatedAt = DateTime.UtcNow
+                Status = DAL.Enums.Status.ToDo
             };
 
             _mockMapper.Setup(r => r.Map<DAL.Entities.ToDoTask>(createDto)).Returns(entity);
