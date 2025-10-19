@@ -3,6 +3,7 @@ using FluentResults;
 using MediatR;
 using ToDoApp.BLL.DTOs.ToDoTask;
 using ToDoApp.BLL.Extentions;
+using ToDoApp.BLL.Interfaces.Logging;
 using ToDoApp.BLL.Resorces;
 using ToDoApp.DAL.Repositories.Interfaces.Base;
 
@@ -12,11 +13,13 @@ namespace ToDoApp.BLL.Mediatr.ToDoTask.Delete
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryWrapper _repositoryWrapper;
+        private readonly ILoggerService _loggerService;
 
-        public DeleteToDoTaskHandler(IMapper mapper, IRepositoryWrapper repositoryWrapper)
+        public DeleteToDoTaskHandler(IMapper mapper, IRepositoryWrapper repositoryWrapper, ILoggerService loggerService)
         {
             _mapper = mapper;
             _repositoryWrapper = repositoryWrapper;
+            _loggerService = loggerService;
         }
         public async Task<Result<ToDoTaskDto>> Handle(DeleteToDoTaskCommand request, CancellationToken cancellationToken)
         {
@@ -26,6 +29,7 @@ namespace ToDoApp.BLL.Mediatr.ToDoTask.Delete
             if (entity == null)
             {
                 errorMessage = Errors_TodoTask.NotFoundById.FormatWith("TodoTask", request.id);
+                _loggerService.LogError(request, errorMessage);
                 return Result.Fail(errorMessage);
             }
 
@@ -33,11 +37,13 @@ namespace ToDoApp.BLL.Mediatr.ToDoTask.Delete
 
             if(await _repositoryWrapper.SaveChangesAsync() > 0)
             {
+                _loggerService.LogInformation("Success! Task was deleted!");
                 var dto = _mapper.Map<ToDoTaskDto>(entity);
                 return Result.Ok(dto);
             }
 
             errorMessage = Errors_TodoTask.FailedToDelete.FormatWith("TodoTask");
+            _loggerService.LogError(request, errorMessage);
             return Result.Fail("Error while delete Task.");
 
             

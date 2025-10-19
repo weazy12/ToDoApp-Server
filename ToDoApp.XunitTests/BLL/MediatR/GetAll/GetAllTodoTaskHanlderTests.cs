@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Query;
 using Moq;
 using ToDoApp.BLL.DTOs.ToDoTask;
 using ToDoApp.BLL.Mediatr.ToDoTask.GetAll;
+using ToDoApp.BLL.Interfaces.Logging;
 using ToDoApp.DAL.Repositories.Interfaces.Base;
 
 namespace ToDoApp.XunitTests.BLL.MediatR.GetAll
@@ -15,12 +16,16 @@ namespace ToDoApp.XunitTests.BLL.MediatR.GetAll
 
         private readonly Mock<IMapper> _mockMapper;
 
+        private readonly Mock<ILoggerService> _mockLoggerService;
+
         private readonly GetAllToDoTasksHandler _handler;
         public GetAllTodoTaskHanlderTests()
         {
             _mockMapper = new Mock<IMapper>();
             _mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
-            _handler = new GetAllToDoTasksHandler(_mockMapper.Object, _mockRepositoryWrapper.Object);
+            _mockLoggerService = new Mock<ILoggerService>();
+
+            _handler = new GetAllToDoTasksHandler(_mockMapper.Object, _mockRepositoryWrapper.Object, _mockLoggerService.Object);
         }
 
         [Fact]

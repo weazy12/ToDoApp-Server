@@ -9,6 +9,7 @@ using FluentAssertions;
 using Microsoft.EntityFrameworkCore.Query;
 using Moq;
 using ToDoApp.BLL.DTOs.ToDoTask;
+using ToDoApp.BLL.Interfaces.Logging;
 using ToDoApp.BLL.Mediatr.ToDoTask.Update;
 using ToDoApp.DAL.Repositories.Interfaces.Base;
 
@@ -20,12 +21,16 @@ namespace ToDoApp.XunitTests.BLL.MediatR.Update
 
         private readonly Mock<IMapper> _mockMapper;
 
+        private readonly Mock<ILoggerService> _mockLoggerService;
+
         private readonly UpdateToDoTaskHandler _handler;
         public UpdateToDoTaskHandlerTests()
         {
             _mockMapper = new Mock<IMapper>();
             _mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
-            _handler = new UpdateToDoTaskHandler(_mockMapper.Object, _mockRepositoryWrapper.Object);
+            _mockLoggerService = new Mock<ILoggerService>();
+
+            _handler = new UpdateToDoTaskHandler(_mockMapper.Object, _mockRepositoryWrapper.Object, _mockLoggerService.Object);
         }
 
         [Fact]

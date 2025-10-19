@@ -8,6 +8,7 @@ using FluentResults;
 using MediatR;
 using ToDoApp.BLL.DTOs.ToDoTask;
 using ToDoApp.BLL.Extentions;
+using ToDoApp.BLL.Interfaces.Logging;
 using ToDoApp.BLL.Resorces;
 using ToDoApp.DAL.Repositories.Interfaces.Base;
 
@@ -17,11 +18,13 @@ namespace ToDoApp.BLL.Mediatr.ToDoTask.Update
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryWrapper _repositoryWrapper;
+        private readonly ILoggerService _loggerService;
 
-        public UpdateToDoTaskHandler(IMapper mapper, IRepositoryWrapper repositoryWrapper)
+        public UpdateToDoTaskHandler(IMapper mapper, IRepositoryWrapper repositoryWrapper, ILoggerService loggerService)
         {
             _mapper = mapper;
             _repositoryWrapper = repositoryWrapper;
+            _loggerService = loggerService;
         }
 
         public async Task<Result<ToDoTaskDto>> Handle(UpdateToDoTaskCommand request, CancellationToken cancellationToken)
@@ -32,6 +35,7 @@ namespace ToDoApp.BLL.Mediatr.ToDoTask.Update
             if (entity == null)
             {
                 errorMessage = Errors_TodoTask.NotFoundById.FormatWith("TodoTask", request.UpdateToDoTaskDto.Id);
+                _loggerService.LogError(request, errorMessage);
                 return Result.Fail(errorMessage);
             }
 
@@ -42,9 +46,11 @@ namespace ToDoApp.BLL.Mediatr.ToDoTask.Update
             if (await _repositoryWrapper.SaveChangesAsync() > 0)
             {
                 var dto = _mapper.Map<ToDoTaskDto>(entity);
+                _loggerService.LogInformation("Success! Task was updated.");
                 return Result.Ok(dto);
             }
             errorMessage = Errors_TodoTask.FailedToUpdate.FormatWith("TodoTask");
+            _loggerService.LogError(request, errorMessage);
             return Result.Fail(errorMessage);
 
         }

@@ -1,8 +1,11 @@
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
+using Serilog;
 using ToDoApp.BLL;
 using ToDoApp.BLL.Behavior;
+using ToDoApp.BLL.Interfaces.Logging;
+using ToDoApp.BLL.Services.Logging;
 using ToDoApp.DAL.Data;
 using ToDoApp.DAL.Repositories.Interfaces.Base;
 using ToDoApp.DAL.Repositories.Realizations.Base;
@@ -11,6 +14,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Host.UseSerilog((ctx,lc) => 
+{
+    lc.WriteTo.Console();
+});
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddAutoMapper(typeof(BllAssemblyMarker).Assembly);
@@ -23,6 +30,7 @@ builder.Services.AddMediatR(cfg =>
 builder.Services.AddValidatorsFromAssemblyContaining<BllAssemblyMarker>();
 
 builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+builder.Services.AddScoped<ILoggerService, LoggerService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 

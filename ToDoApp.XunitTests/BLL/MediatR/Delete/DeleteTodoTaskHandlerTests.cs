@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Query;
 using Moq;
 using ToDoApp.BLL.DTOs.ToDoTask;
 using ToDoApp.BLL.Mediatr.ToDoTask.Delete;
+using ToDoApp.BLL.Interfaces.Logging;
 using ToDoApp.DAL.Repositories.Interfaces.Base;
 
 namespace ToDoApp.XunitTests.BLL.MediatR.Delete
@@ -14,14 +15,16 @@ namespace ToDoApp.XunitTests.BLL.MediatR.Delete
         private readonly Mock<IRepositoryWrapper> _mockRepositoryWrapper;
 
         private readonly Mock<IMapper> _mockMapper;
+        private readonly Mock<ILoggerService> _mockLoggerService;
 
         private readonly DeleteToDoTaskHandler _handler;
         public DeleteTodoTaskHandlerTests()
         {
             _mockMapper = new Mock<IMapper>();
             _mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
-            _handler = new DeleteToDoTaskHandler(_mockMapper.Object, _mockRepositoryWrapper.Object);
+            _mockLoggerService = new Mock<ILoggerService>();
 
+            _handler = new DeleteToDoTaskHandler(_mockMapper.Object, _mockRepositoryWrapper.Object, _mockLoggerService.Object);
         }
 
         [Fact]

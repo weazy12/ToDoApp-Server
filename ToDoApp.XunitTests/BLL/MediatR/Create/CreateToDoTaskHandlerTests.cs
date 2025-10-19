@@ -4,6 +4,7 @@ using Moq;
 using ToDoApp.BLL.DTOs.ToDoTask;
 using ToDoApp.BLL.Mediatr.Tasks.Create;
 using ToDoApp.BLL.Mediatr.ToDoTask.Create;
+using ToDoApp.BLL.Interfaces.Logging;
 using ToDoApp.DAL.Repositories.Interfaces.Base;
 
 namespace ToDoApp.XunitTests.BLL.MediatR.Create
@@ -14,13 +15,16 @@ namespace ToDoApp.XunitTests.BLL.MediatR.Create
 
         private readonly Mock<IMapper> _mockMapper;
 
+        private readonly Mock<ILoggerService> _mockLoggerService;    
+
         private readonly CreateToDoTaskHandler _handler;
         public CreateToDoTaskHandlerTests()
         {
             _mockMapper = new Mock<IMapper>();
             _mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
+            _mockLoggerService = new Mock<ILoggerService>();
 
-            _handler = new CreateToDoTaskHandler(_mockMapper.Object, _mockRepositoryWrapper.Object);
+            _handler = new CreateToDoTaskHandler(_mockMapper.Object, _mockRepositoryWrapper.Object, _mockLoggerService.Object);
 
 
         }
