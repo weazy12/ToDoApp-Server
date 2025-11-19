@@ -21,6 +21,7 @@ namespace ToDoApp.BLL.DTOs.ToDoTask
 
         public DateTime CreatedAt { get; set; }
 
-        public DateTime? CompletedAt { get; set; }
+        public DateTime? CompletedAt { 
+            get; set; }
     }
 }

@@ -9,7 +9,6 @@ public class BaseTodoTaskValidator : AbstractValidator<CreateToDoTaskDto>
 {
     public static readonly int MaxTitleLenght = 100;
     public static readonly int MinTitleLenght = 3;
-    public static readonly int MinDescriptionLenght = 10;
     public static readonly int MaxDescriptionLenght = 1000;
 
     public BaseTodoTaskValidator()
@@ -25,8 +24,6 @@ public class BaseTodoTaskValidator : AbstractValidator<CreateToDoTaskDto>
 
 
         RuleFor(x => x.Description)
-            .MinimumLength(MinDescriptionLenght)
-                .WithMessage(Errors_Validation.MinLenght.FormatWith("Description", MinDescriptionLenght))
             .MaximumLength(MaxDescriptionLenght)
                 .WithMessage(Errors_Validation.MaxLenght.FormatWith("Description", MaxDescriptionLenght));
 

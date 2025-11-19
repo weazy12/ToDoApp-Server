@@ -14,9 +14,6 @@ namespace ToDoApp.BLL.Validators
             RuleFor(x => x.UpdateToDoTaskDto.Id)
                 .GreaterThan(0)
                 .WithMessage(Errors_Validation.GreateThanZero.FormatWith("Id"));
-            RuleFor(x => x.UpdateToDoTaskDto.Status)
-                .IsInEnum()
-                .WithMessage(Errors_Validation.ShouldBeEnum.FormatWith("Status"));
 
             RuleFor(x => x.UpdateToDoTaskDto).SetValidator(baseTodoTaskValidator);
         }

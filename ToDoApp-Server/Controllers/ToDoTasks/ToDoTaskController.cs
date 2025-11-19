@@ -4,6 +4,7 @@ using ToDoApp.BLL.Mediatr.ToDoTask.Create;
 using ToDoApp.BLL.Mediatr.ToDoTask.Delete;
 using ToDoApp.BLL.Mediatr.ToDoTask.GetAll;
 using ToDoApp.BLL.Mediatr.ToDoTask.Update;
+using ToDoApp.BLL.Mediatr.ToDoTask.UpdateStatus;
 
 namespace ToDoApp.WebApi.Controllers.ToDoTasks
 {
@@ -13,7 +14,7 @@ namespace ToDoApp.WebApi.Controllers.ToDoTasks
         public async Task<IActionResult> GetAll()
         {
             return HandleResult(await Mediator.Send(new GetAllToDoTasksQuery()));
-        }
+            }
 
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateToDoTaskDto createToDoTaskDto)
@@ -31,6 +32,12 @@ namespace ToDoApp.WebApi.Controllers.ToDoTasks
         public async Task<IActionResult> Delete(int id)
         {
             return HandleResult(await Mediator.Send(new DeleteToDoTaskCommand(id)));
+        }
+
+        [HttpPut("update-status")]
+        public async Task<IActionResult> Update([FromBody] UpdateTodoStatusDto updateTodoStatusDto)
+        {
+            return HandleResult(await Mediator.Send(new UpdateToDoStatusCommand(updateTodoStatusDto)));
         }
     }
 }

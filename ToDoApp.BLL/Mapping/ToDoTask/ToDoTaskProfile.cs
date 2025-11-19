@@ -16,6 +16,7 @@ namespace ToDoApp.BLL.Mapping.Tasks
             CreateMap<CreateToDoTaskDto, ToDoTask>();
             CreateMap<UpdateToDoTaskDto, ToDoTask>();
             CreateMap<ToDoTask, ToDoTaskDto>();
+            CreateMap<UpdateTodoStatusDto, ToDoTask>();
         }
     }
 }

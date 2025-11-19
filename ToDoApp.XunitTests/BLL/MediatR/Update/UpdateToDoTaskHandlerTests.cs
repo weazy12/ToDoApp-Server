@@ -42,7 +42,6 @@ namespace ToDoApp.XunitTests.BLL.MediatR.Update
                 Title = "Title updated",
                 Description = "Lorem ipsum updated",
                 DueDate = DateTime.UtcNow.AddDays(3),
-                Status = DAL.Enums.Status.ToDo,
             };
 
             var existingEntity = new DAL.Entities.ToDoTask
@@ -108,7 +107,6 @@ namespace ToDoApp.XunitTests.BLL.MediatR.Update
                 Title = "Title updated",
                 Description = "Lorem ipsum updated",
                 DueDate = DateTime.UtcNow.AddDays(3),
-                Status = DAL.Enums.Status.ToDo,
             };
 
             var existingEntity = new DAL.Entities.ToDoTask
@@ -166,7 +164,6 @@ namespace ToDoApp.XunitTests.BLL.MediatR.Update
                 Title = "Title updated",
                 Description = "Lorem ipsum updated",
                 DueDate = DateTime.UtcNow.AddDays(3),
-                Status = DAL.Enums.Status.ToDo,
             };
 
             var existingEntity = new DAL.Entities.ToDoTask
@@ -175,7 +172,6 @@ namespace ToDoApp.XunitTests.BLL.MediatR.Update
                 Title = "Title",
                 Description = "Lorem ipsum",
                 DueDate = DateTime.UtcNow.AddDays(3),
-                Status = DAL.Enums.Status.ToDo
             };
             var updatedEntity = new DAL.Entities.ToDoTask
             {
@@ -183,7 +179,6 @@ namespace ToDoApp.XunitTests.BLL.MediatR.Update
                 Title = "Title updated",
                 Description = "Lorem ipsum updated",
                 DueDate = DateTime.UtcNow.AddDays(3),
-                Status = DAL.Enums.Status.ToDo,
             };
 
             var returnDto = new ToDoTaskDto
@@ -192,8 +187,6 @@ namespace ToDoApp.XunitTests.BLL.MediatR.Update
                 Title = "Title updated",
                 Description = "Lorem ipsum updated",
                 DueDate = DateTime.UtcNow.AddDays(3),
-                Status = DAL.Enums.Status.ToDo,
-
             };
 
             _mockRepositoryWrapper.Setup(r => r.ToDoTaskRepository.GetFirstOrDefaultAsync(

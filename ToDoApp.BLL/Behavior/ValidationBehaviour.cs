@@ -33,7 +33,7 @@ namespace ToDoApp.BLL.Behavior
                 }
             }
 
-            return await next(cancellationToken);
+            return await next();
         }
     }
 }

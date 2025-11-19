@@ -7,9 +7,9 @@ using ToDoApp.DAL.Enums;
 
 namespace ToDoApp.BLL.DTOs.ToDoTask
 {
-    public class UpdateToDoTaskDto : CreateToDoTaskDto
+    public class UpdateTodoStatusDto
     {
         public int Id { get; set; }
-   
+        public Status Status { get; set; }
     }
 }

@@ -78,17 +78,6 @@ namespace ToDoApp.XunitTests.BLL.Validator
         }
 
         [Fact]
-        public async Task ValidatorFail_WhenDescriptionTooShort()
-        {
-            var dto = CreateValidDto();
-            dto.Description = new string('b', BaseTodoTaskValidator.MinDescriptionLenght - 3);
-
-            var result = await _baseTodoTaskValidator.ValidateAsync(dto);
-
-            result.IsValid.Should().BeFalse();
-        }
-
-        [Fact]
         public async Task ValidatorFail_WhenDueDateEmpty()
         {
             var dto = CreateValidDto();

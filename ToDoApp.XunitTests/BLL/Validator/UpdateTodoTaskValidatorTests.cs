@@ -42,20 +42,6 @@ namespace ToDoApp.XunitTests.BLL.Validator
 
             result.IsValid.Should().BeFalse();
         }
-
-        [Fact]
-        public async Task ValidationFail_WhenStatusIsNotEnum()
-        {
-            var dto = UpdateValidCommand();
-
-            dto.UpdateToDoTaskDto.Status = (DAL.Enums.Status)3;
-
-            var result = await _updateTodoTaskValidator.ValidateAsync(dto);
-
-            result.IsValid.Should().BeFalse();
-
-        }
-
         private UpdateToDoTaskCommand UpdateValidCommand()
         {
             var dto = new UpdateToDoTaskDto
@@ -64,7 +50,6 @@ namespace ToDoApp.XunitTests.BLL.Validator
                 Title = "Valid Task Title",
                 Description = "This is a valid content with enough characters",
                 DueDate = DateTime.UtcNow.AddDays(7),
-                Status = DAL.Enums.Status.InProgress
             };
 
             return new UpdateToDoTaskCommand(dto);
