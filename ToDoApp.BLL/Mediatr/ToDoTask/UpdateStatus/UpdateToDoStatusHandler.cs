@@ -31,6 +31,15 @@ namespace ToDoApp.BLL.Mediatr.ToDoTask.UpdateStatus
             {
                 return Result.Fail("Fail");
             }
+            
+            if(request.UpdateTodoStatusDto.Status == DAL.Enums.Status.Done)
+            {
+                entity.CompletedAt = DateTime.UtcNow;
+            }
+            else
+            {
+                entity.CompletedAt = null;
+            }
 
             _mapper.Map(request.UpdateTodoStatusDto, entity);
             _repositoryWrapper.ToDoTaskRepository.Update(entity);
